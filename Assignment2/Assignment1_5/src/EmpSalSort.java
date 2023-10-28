@@ -5,7 +5,7 @@ public class EmpSalSort {
 
 
 	public static void selectionSort(Employee arr[], int N) {
-		
+
 		//1. count number of passes
 		for(int i = 0 ; i < N - 1 ; i++) {
 			//2. select one position from array - i
@@ -25,7 +25,6 @@ public class EmpSalSort {
 
 //Create array of employees and sort employee by salary
 
-	
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		

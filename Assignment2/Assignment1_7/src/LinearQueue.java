@@ -10,26 +10,26 @@ public class LinearQueue {
 		rear = 0;
 	}
 	public void push(int data) {
-		rear++;
 		arr[rear] = data;
+		rear++;
 	}
 	
 	public void pop() {
-	
+		System.out.println("Popped element is : "+arr[front]);
 		front++;
 	}
 	
 	public int peek() {
-		//a. read/return data of front + 1 index
-		return arr[front + 1];
+		//a. read/return data of front  index
+		return arr[front];
 	}
 	
 	public boolean isFull() {
-		return rear == SIZE -1;
+		return rear == SIZE ;
 	}
 	
 	public boolean isEmpty() {
-		return rear == front;
+		return  rear == front;
 	}
 }
 
