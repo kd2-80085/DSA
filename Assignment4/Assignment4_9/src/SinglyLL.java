@@ -1,7 +1,7 @@
 
 public class SinglyLL {
 
-	
+
 	public class Node
 	{
 		private int data;
@@ -14,8 +14,15 @@ public class SinglyLL {
 
 	private Node head;
 
-	Node firstNode = new Node(1);
-	Node secondNode = new Node(2);
+
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
 
 	public SinglyLL() {
 		head = null;
@@ -147,56 +154,57 @@ public class SinglyLL {
 		System.out.println("");
 	}
 
+	public int length() {
+		int length = 0;
+		Node trav = head;
+		while (trav != null) {
+			length++;
+			trav = trav.next;
+		}
+		return length;
+	}
+
 	public void deleteAll() {
 		head = null;
 	}
 
-	public void insertAfterNode(int valueToFind, int valueToInsert) {
-        Node newNode = new Node(valueToInsert);
-
-        Node current = head;
-        while (current != null) {
-            if (current.data == valueToFind) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return; // Node inserted, exit the loop
-            }
-            current = current.next;
-        }
-
-        
-        System.out.println("Value not found in the list.");
-    }
-
-    public void insertBeforeNode(int valueToFind, int valueToInsert) {
-        Node newNode = new Node(valueToInsert);
-
-        if (head == null) {
-            System.out.println("List is empty. Cannot insert before the value.");
-            return;
-        }
-
-        if (head.data == valueToFind) {
-            newNode.next = head;
-            head = newNode;
-            return;
-        }
-
-        Node current = head;
-        while (current.next != null) {
-            if (current.next.data == valueToFind) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return; // Node inserted, exit the loop
-            }
-            current = current.next;
-        }
-        System.out.println("Value not found in the list.");
-    }
 
 	
+	public int findMax() {
+		if (head == null) {
+			System.out.println("The linked list is empty.");
+			return -1;
+		}	        
+		int max = head.data;
+		Node current = head;
+		while (current != null) {
+			if (current.data > max) {
+				max = current.data;
+			}
+			current = current.next;
+		}
+		return max;
+	}
+
+	public int findMin() {
+		if (head == null) {
+			System.out.println("The linked list is empty.");
+			return -1;
+		}
+		int min = head.data;
+		Node current = head;
+		while (current != null) {
+			if (current.data < min) {
+				min = current.data;
+			}
+			current = current.next;
+		}
+		return min;
+	}
+
 
 }
+
 
 
 

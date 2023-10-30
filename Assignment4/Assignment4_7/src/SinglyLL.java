@@ -1,4 +1,3 @@
-
 public class SinglyLL {
 
 	
@@ -14,8 +13,15 @@ public class SinglyLL {
 
 	private Node head;
 
-	Node firstNode = new Node(1);
-	Node secondNode = new Node(2);
+	
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
 
 	public SinglyLL() {
 		head = null;
@@ -147,56 +153,39 @@ public class SinglyLL {
 		System.out.println("");
 	}
 
+	public int length() {
+		 int length = 0;
+		    Node trav = head;
+		    while (trav != null) {
+		        length++;
+		        trav = trav.next;
+		    }
+		    return length;
+	}
+	
 	public void deleteAll() {
 		head = null;
 	}
-
-	public void insertAfterNode(int valueToFind, int valueToInsert) {
-        Node newNode = new Node(valueToInsert);
-
-        Node current = head;
-        while (current != null) {
-            if (current.data == valueToFind) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return; // Node inserted, exit the loop
-            }
-            current = current.next;
-        }
-
-        
-        System.out.println("Value not found in the list.");
-    }
-
-    public void insertBeforeNode(int valueToFind, int valueToInsert) {
-        Node newNode = new Node(valueToInsert);
-
-        if (head == null) {
-            System.out.println("List is empty. Cannot insert before the value.");
-            return;
-        }
-
-        if (head.data == valueToFind) {
-            newNode.next = head;
-            head = newNode;
-            return;
-        }
-
-        Node current = head;
-        while (current.next != null) {
-            if (current.next.data == valueToFind) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return; // Node inserted, exit the loop
-            }
-            current = current.next;
-        }
-        System.out.println("Value not found in the list.");
-    }
-
 	
-
+	/* Function to reverse the linked list in-place */
+	 public  static void reverseList(SinglyLL list)
+	{
+	    Node prev = null;
+	    Node current = list.head; // Assuming 'list' has a 'head' property that points to the first node
+	    Node next = null;
+	    while (current != null) {
+	        next = current.next;
+	        current.next = prev;
+	        prev = current;
+	        current = next;
+	    }
+	    list.head = prev; // Update the 'head' of the list to point to the new first node (formerly the last node)
+	}
+	 
+	 
+	
 }
+
 
 
 

@@ -5,15 +5,21 @@ public class TestSinglyLL {
 
 	public static void main(String[] args) {
 
-		SinglyLL linkedList=new SinglyLL();
-		linkedList.addFirst(10);
-		linkedList.addFirst(20);
-		linkedList.addFirst(30);
-		linkedList.addFirst(40);
-		linkedList.addFirst(50);
-		
-		
-		
+		SinglyLL list = new SinglyLL();
+
+		list.addLast(1);
+		list.addLast(2);
+		list.addLast(4);
+
+		list.displayList(); // List : 1  2  4
+
+		list.insertAfterNode(2, 8);
+		list.displayList(); // List :  1  2  8  4
+
+		list.insertBeforeNode(4, 16);
+
+		list.displayList(); // List : 1  2  8  16  4
+
 
 
 	}

@@ -1,3 +1,5 @@
+/* 6. Sort singly linear list using bubble sort.
+*/
 
 public class SinglyLL {
 
@@ -14,8 +16,15 @@ public class SinglyLL {
 
 	private Node head;
 
-	Node firstNode = new Node(1);
-	Node secondNode = new Node(2);
+	
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
 
 	public SinglyLL() {
 		head = null;
@@ -147,56 +156,66 @@ public class SinglyLL {
 		System.out.println("");
 	}
 
+	public int length() {
+		 int length = 0;
+		    Node trav = head;
+		    while (trav != null) {
+		        length++;
+		        trav = trav.next;
+		    }
+		    return length;
+	}
+	
 	public void deleteAll() {
 		head = null;
 	}
-
-	public void insertAfterNode(int valueToFind, int valueToInsert) {
-        Node newNode = new Node(valueToInsert);
-
-        Node current = head;
-        while (current != null) {
-            if (current.data == valueToFind) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return; // Node inserted, exit the loop
-            }
-            current = current.next;
-        }
-
+	public static void bubbleSort(SinglyLL list) {
+        int n = list.length();
         
-        System.out.println("Value not found in the list.");
-    }
+        for (int pass = 0; pass < n - 1; pass++)
+        {
+            Node currentNode = list.getHead();
+            Node nextNode = currentNode.next;
+            Node previousNode = null;
 
-    public void insertBeforeNode(int valueToFind, int valueToInsert) {
-        Node newNode = new Node(valueToInsert);
+            boolean swapped = false;
 
-        if (head == null) {
-            System.out.println("List is empty. Cannot insert before the value.");
-            return;
-        }
+            for (int i = 0; i < n - pass - 1; i++)
+            {
+                if (currentNode.data > nextNode.data) 
+                {
+                    if (previousNode == null) // at the head of the linked list, and a swap is going to happen 
+                    	//with the first node in the list
+                        list.setHead(nextNode);
+                    else 
+                    	previousNode.next=nextNode;
+                    
+                    currentNode.next=nextNode.next;
+                    nextNode.next=currentNode;
 
-        if (head.data == valueToFind) {
-            newNode.next = head;
-            head = newNode;
-            return;
-        }
-
-        Node current = head;
-        while (current.next != null) {
-            if (current.next.data == valueToFind) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return; // Node inserted, exit the loop
+                    previousNode = nextNode;
+                    nextNode = currentNode.next;
+                    swapped = true;
+                } 
+                else 
+                {
+                	previousNode = currentNode;
+                    currentNode = nextNode;
+                    nextNode = nextNode.next;
+                }
             }
-            current = current.next;
+
+            if (!swapped) {
+                // If no two elements were swapped in the inner loop, the list is already sorted.
+                break;
+            }
         }
-        System.out.println("Value not found in the list.");
     }
+
 
 	
-
 }
+
 
 
 
