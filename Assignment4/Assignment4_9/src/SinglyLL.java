@@ -1,7 +1,5 @@
 
 public class SinglyLL {
-
-
 	public class Node
 	{
 		private int data;
@@ -201,8 +199,6 @@ public class SinglyLL {
 		}
 		return min;
 	}
-
-
 }
 
 
