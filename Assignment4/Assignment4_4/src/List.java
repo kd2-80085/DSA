@@ -1,4 +1,5 @@
 
+
 public class List {
 	
 	public class Node{
@@ -165,6 +166,22 @@ public class List {
 		}
 		head=t1;
 	}
+	
+	/* Function to reverse the linked list in-place */
+//	 public  static void reverseList(List list)
+//	{
+//	    Node prev = null;
+//	    Node current = list.head; // Assuming 'list' has a 'head' property that points to the first node
+//	    Node next = null;
+//	    while (current != null) {
+//	        next = current.next;
+//	        current.next = prev;
+//	        prev = current;
+//	        current = next;
+//	    }
+//	    list.head = prev; // Update the 'head' of the list to point to the new first node (formerly the last node)
+//	}
+
 }
 
 

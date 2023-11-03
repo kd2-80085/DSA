@@ -9,11 +9,11 @@ public class TestSinglyRevLL {
 	    list.addLast(2);
 	    list.addLast(4);
 
-	    list.displayList(); // List : 5 2 4
-
-	    SinglyLL.reverseList(list);
-
-	    list.displayList();//4  2  5
+	    list.displayList(); //List forward display: 5 ->  2 ->  4
+	    
+	    list.displayListAsArrayInReverse();//Reverse Linked List using Array: 4 -> 2 -> 5
+      
+	    
 	}
 	
 }
